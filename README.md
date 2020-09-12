@@ -25,6 +25,8 @@ Actually in `example/`，i have created a React mini project by `create react ap
 - `yarn add ../` add target file as module
 - `yarn start` start the project
 
+Attention, i have created the `npm` directory, so you can publish the npm package in this folder, so you can config the `control.sh` to do something, in this case to avoid some unless dependencies!
+
 ### Support Typescript
 
 Firstly, you need to `npm install --save typescript @types/node @types/react @types/react-dom @types/jest` and `npm install --save-dev @rollup/plugin-typescript` to support Typescript compile and package!

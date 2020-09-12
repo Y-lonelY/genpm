@@ -25,6 +25,8 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 - `yarn add ../` 引入根目录作为依赖
 - `yarn start` 启动项目，进行测试
 
+注意，我新建了一个 `npm` 的文件夹，你可以在该文件下进行 npm 包的发布，因此你可以修改 `control.sh` 脚本来执行一些简单的脚本。这么做的目的时减少一些不必要的 `dependencies`
+
 
 ### 支持 TypeScript
 
