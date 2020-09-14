@@ -37,6 +37,9 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 - 在 `package.json` 内配置 `types` 属性来引入声明文件
 - 在 `package.json` 内配置 `files` 属性来开启白名单，发布指定的文件到 npm
 
+注意：`dependencies` 需要正确配置来支持 `.d.ts` 文件的打包，参看 [publish](https://www.tslang.cn/docs/handbook/declaration-files/publishing.html) 获取更多细节
+
+
 ### 关于 React
 
 大多数情况下，你并不想打包诸如 `React` 等依赖包，因为在你的项目内大概率已经引入了相关的依赖

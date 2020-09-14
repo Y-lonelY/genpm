@@ -10,5 +10,9 @@
     "\"catch\"]"
   ],
   "author": "Y-lonelY",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/react-dom": "^16.9.0",
+    "typescript": "~3.7.2"
+  }
 }

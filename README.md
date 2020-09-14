@@ -36,6 +36,7 @@ Then, we need to add some configs:
 - config `types` in `package.json`, which will take the type define file into the bundle
 - config `files` to open whitelist, used to publish the target files to npm
 
+Attention: `dependencies` is required to support the `.d.ts` file, see [publish](https://www.tslang.cn/docs/handbook/declaration-files/publishing.html) for more details
 
 ### About React
 
