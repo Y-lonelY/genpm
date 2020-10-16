@@ -22,7 +22,7 @@ we support `.js`, `.ts`, `.tsx` file type
 Actually in `example/`，i have created a React mini project by `create react app`, what you need to do is importing what you develop to the `example/node_module`
 
 - `cd example` goto example directory
-- `yarn add ../` add target file as module
+- `yarn add ../npm` add target npm's file as local module
 - `yarn start` start the project
 
 Attention, i have created the `npm` directory, so you can publish the npm package in this folder, so you can config the `control.sh` to do something, in this case to avoid some unless dependencies!
