@@ -1,6 +1,8 @@
 import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+// used to compile css into js by create style element
+import postcss from 'rollup-plugin-postcss'
 
 const inputPath = {
   js: 'src/index.js',
@@ -14,6 +16,6 @@ export default {
     format: 'cjs',
     exports: "auto"
   },
-  plugins: [typescript(), resolve(), commonjs()],
+  plugins: [typescript(), resolve(), commonjs(), postcss()],
   external: ["react", "react-dom"]
 }
