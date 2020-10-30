@@ -6,7 +6,7 @@ import postcss from 'rollup-plugin-postcss'
 
 const inputPath = {
   js: 'src/index.js',
-  ts: 'src/typescript/index.tsx'
+  ts: 'src/typescript/index.tsx',
 }
 
 export default {
@@ -14,8 +14,8 @@ export default {
   output: {
     file: 'index.js',
     format: 'cjs',
-    exports: "auto"
+    exports: 'auto',
   },
   plugins: [typescript(), resolve(), commonjs(), postcss()],
-  external: ["react", "react-dom"]
+  external: ['react', 'react-dom'],
 }
