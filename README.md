@@ -8,6 +8,12 @@ we support `.js`, `.ts`, `.tsx` file type
 
 **Attention，you need to config rollup.config.js's input param（which point the entry file）correctly**
 
+Support NPM Packages:
+
+- [import-import-lazy](https://www.npmjs.com/package/react-import-lazy)
+- [cell-render](https://www.npmjs.com/package/cell-render)
+- [react-error-catcher](https://www.npmjs.com/package/react-error-catcher)
+
 
 ## How
 

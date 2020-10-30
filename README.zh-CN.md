@@ -8,6 +8,12 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 **注意，rollup.config.js 内的 input 参数（指明入口文件）需要正确配置**
 
+目前已支持的 npm 库:
+
+- [import-import-lazy](https://www.npmjs.com/package/react-import-lazy)
+- [cell-render](https://www.npmjs.com/package/cell-render)
+- [react-error-catcher](https://www.npmjs.com/package/react-error-catcher)
+
 
 # 如何开始
 
