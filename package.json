@@ -25,6 +25,9 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "prepublish": "npm version",
+    "publish": "npm publish",
+    "publish:beta": "npm publish --tag beta",
     "build": "rollup -c && bash control.sh build",
     "example": "cd example/ && yarn install && yarn start"
   },
