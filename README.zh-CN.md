@@ -85,3 +85,20 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 通过 `files` 来配置发布包需要包含的文件/目录，比如你在 `.gitignore` 内配置了忽略 `dist` 目录，但是在发布时，需要告诉 npm 去包含该文件，则此时通过 `"files": ["dist"]` 解决
 
+
+## Q&A
+
+1. `Rollup can't see named export from commonjs module`
+
+解决：改变引入方式，如下所示：
+
+```javascript
+// bad
+import { test } from 'test-package'
+
+// good
+import * as Test from 'test-package'
+
+const { test } = Test
+```
+
