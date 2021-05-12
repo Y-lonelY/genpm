@@ -1,31 +1,35 @@
-简体中文 | [English](./README.md)
+[简体中文]((./README.zh-CN.md)) | English
 
-# NPM-TEMPLATE
+# NPM-JAVASCRIPT-TEMPLATE
 
-NPM-TEMPLATE is a NPM Template Project based on [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) 和 [rollup](https://rollupjs.org/guide/en/) , or you can just start with JavaScript!
+<b>NPM-JAVASCRIPT-TEMPLATE</b> is a javascript NPM Template Project! If you don't want to depend other Modernization FE Framework or UI Framework also, it will be a good choice to start with!
 
-we support `.js`, `.ts`, `.tsx` file type
+we support `.js`, `.ts` file type
 
-**Attention，you need to config rollup.config.js's input param（which point the entry file）correctly**
+<b>Attention，you need to config rollup.config.js's input param（which point the entry file）correctly<b>
 
-Support NPM Packages:
+Supported NPM Packages:
 
-- [import-import-lazy](https://www.npmjs.com/package/react-import-lazy)
-- [cell-render](https://www.npmjs.com/package/cell-render)
-- [react-error-catcher](https://www.npmjs.com/package/react-error-catcher)
+- [ele-utility](https://www.npmjs.com/package/ele-utility): Common usages in JavaScript!
 
-
-## How
+## Start
 
 ### Publish
 
-1. do `npm install` to import some dependences
+1. do `npm install` to init the project
+
 2. develop under `src/` directory（or you can modify `rollup.config.js` -> `input` to change the rule）
-3. do `npm run build` to generate `index.js` on root，the publish it to the NPM platform
+
+3. do `npm run build` to output the target file in `/npm`
+
+4. config your `package.json`
+
+5. publish
+
 
 ### Local Test
 
-Actually in `example/`，i have created a React mini project by `create react app`, what you need to do is importing what you develop to the `example/node_module`
+Actually in `example/`，i had simplely init the module
 
 - `cd example` goto example directory
 - `yarn add ../npm` add target npm's file as local module
@@ -33,19 +37,14 @@ Actually in `example/`，i have created a React mini project by `create react ap
 
 Attention, i have created the `npm` directory, so you can publish the npm package in this folder, so you can config the `control.sh` to do something, in this case to avoid some unless dependencies!
 
-### Support Typescript
+## Troubleshooting
 
-Firstly, you need to `npm install --save typescript @types/node @types/react @types/react-dom @types/jest` and `npm install --save-dev @rollup/plugin-typescript` to support Typescript compile and package!
+1. When i import this package in other modules, and you satrt to build, may catch this issue `Error: "[name] is not exported by [module]"`, see [Rollup-troubleshoting](https://rollupjs.org/guide/en/#error-name-is-not-exported-by-module) for more information.
 
-Then, we need to add some configs:
-- remove `outDir` in `tsconfig.json`, or you will caught some errors when packing
-- config `types` in `package.json`, which will take the type define file into the bundle
-- config `files` to open whitelist, used to publish the target files to npm
+Answers: 
 
-Attention: `dependencies` is required to support the `.d.ts` file, see [publish](https://www.tslang.cn/docs/handbook/declaration-files/publishing.html) for more details
+1. set output format to `es`.
 
-### About React
+2. `import * as some from 'some'`
 
-In most case, you will not want to include some packages(like `React`, `lodash` etc) when bundle up.
 
-You can config `external: ["react", "react-dom"]` in `rollup.config.js` to avoid this case, it will not the bundle up the whole `react`, and will replace with `var React = require('react');`, so you must ensure that you have included the `react` in your project! 
