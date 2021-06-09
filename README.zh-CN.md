@@ -2,7 +2,7 @@
 
 # NPM-TEMPLATE
 
-NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) 和 [rollup](https://rollupjs.org/guide/en/) 的 NPM 模版项目，当然你完全可以忽略 React，直接从简单的 JavaScript 项目开始！
+NPM-TEMPLATE(React 版本) 是一个基于 [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) 和 [rollup](https://rollupjs.org/guide/en/) 的 NPM 模版项目，当然你完全可以忽略 React，直接从简单的 JavaScript 项目开始！
 
 该项目提供对 `.js`, `.ts`, `.tsx` 文件类型的支持
 
@@ -14,7 +14,7 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 - [cell-render](https://www.npmjs.com/package/cell-render)
 - [react-error-catcher](https://www.npmjs.com/package/react-error-catcher)
 
-[pure](https://github.com/Y-lonelY/npm-template/tree/pure) 已支持的 npm 库：
+[ts](https://github.com/Y-lonelY/npm-template/tree/pure) 已支持的 npm 库：
 
 - [ele-utility](https://www.npmjs.com/package/ele-utility)
 
@@ -32,11 +32,15 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 实际上在 `example/` 目录下，我们已经通过 `create react app` 添加了一个 React 项目的单元，你需要做的就是将生成的目标文件引入到 `example/node_module` 内
 
-1. 在到 example 目录，`yarn add link:../` 将依赖引用指向本地文件
+1. 在根目录，`npm run dev:link` 将依赖引用指向本地文件
 
 2. 在根目录，`npm run dev` 和 `npm run sample` 分别监听本地文件和 example 应用
 
 这里我们使用 [chokidar-cli](https://github.com/kimmobrunfeldt/chokidar-cli) 来监听文件变化，而不是直接使用 [rollupwatch](https://rollupjs.org/guide/en/#rollupwatch)，因为 rollupwatch 存在问题，无法改变文件内容
+
+<b>注意，在 example 内通过 `yarn eject` 并在 `webpack.config.js` 内设置 `{ alias: react: path.resolve('./node_modules/react') }` 来解决同一个应用内同时引入两份 react 的冲突问题</b>
+
+详情参看[Hooks + multiple instances of React ](https://github.com/facebook/react/issues/13991)
 
 
 ### 支持 TypeScript
