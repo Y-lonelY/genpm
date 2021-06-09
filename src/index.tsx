@@ -5,7 +5,7 @@ const Wrapper: React.FC<WrapperProps> = (props) => {
   const { name } = props
   return (
     <>
-      <div>hello, {name}</div>
+      <div>hi, {name}</div>
       {props.children}
     </>
   )
