@@ -4,13 +4,8 @@ import resolve from '@rollup/plugin-node-resolve'
 // used to compile css into js by create style element
 import postcss from 'rollup-plugin-postcss'
 
-const inputPath = {
-  js: 'src/index.js',
-  ts: 'src/typescript/index.tsx',
-}
-
 export default {
-  input: inputPath.ts,
+  input: 'src/index.tsx',
   output: {
     file: 'index.js',
     format: 'cjs',

@@ -21,19 +21,22 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 ## 如何开始
 
-### 发布
-
 1. 在当前项目内执行 `npm install`，引入相关依赖
+
 2. 在 `src/` 目录下开发（当然，你可以修改 `rollup.config.js` 内的 `input` 来修改这一规则）
-3. 执行 `npm run build` 在根目录下生成 `index.js` 文件，将该文件发布到 npm 平台
 
-### 本地测试
+3. 执行 `npm run build` 在根目录下生成 `npm/index.js` 文件，并将 types 文件复制到 npm 目录下
 
-实际上在 `example/` 目录下，通过 `create react app` 添加了一个 React 项目的单元，你需要做的就是将生成的目标文件引入到 `example/node_module` 内
 
-- `cd example` 进入到 example 目录
-- `yarn add ../` 引入根目录作为依赖
-- `yarn start` 启动项目，进行测试
+### 本地开发
+
+实际上在 `example/` 目录下，我们已经通过 `create react app` 添加了一个 React 项目的单元，你需要做的就是将生成的目标文件引入到 `example/node_module` 内
+
+1. 在到 example 目录，`yarn add link:../` 将依赖引用指向本地文件
+
+2. 在根目录，`npm run dev` 和 `npm run sample` 分别监听本地文件和 example 应用
+
+这里我们使用 [chokidar-cli](https://github.com/kimmobrunfeldt/chokidar-cli) 来监听文件变化，而不是直接使用 [rollupwatch](https://rollupjs.org/guide/en/#rollupwatch)，因为 rollupwatch 存在问题，无法改变文件内容
 
 
 ### 支持 TypeScript
@@ -41,6 +44,7 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 首先，你需要执行 `npm install --save typescript @types/node @types/react @types/react-dom @types/jest` and `npm install --save-dev @rollup/plugin-typescript` 来支持编辑和打包！
 
 然后，你需要添加一些配置，来使其生效：
+
 - 从 `tsconfig.json` 内清除 `outDir` 属性, 不然在打包时会产生错误
 - 在 `package.json` 内配置 `types` 属性来引入声明文件
 - 在 `package.json` 内配置 `files` 属性来开启白名单，发布指定的文件到 npm
@@ -59,15 +63,12 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 ### 重要配置
 
-一些重要的配置如下：
+具体参看 [package.json](./package.json):
 
-1. name
-2. version，版本号的使用参考 [semver](https://semver.org/lang/zh-CN/)
-3. description
-4. author
-5. license
-6. repository
-7. keywords
+- version，版本号的使用参考 [semver](https://semver.org/lang/zh-CN/)
+- 通过 `main` 来配置发布 node modules 的基础入口，比如 `"main": "dist/index.js"`
+- 通过 `files` 来配置发布包需要包含的文件/目录，比如你在 `.gitignore` 内配置了忽略 `dist` 目录，但是在发布时，需要告诉 npm 去包含该文件，则此时通过 `"files": ["dist"]` 解决
+
 
 ### 依赖管理
 
@@ -79,11 +80,6 @@ NPM-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-
 
 `peerDependencies` 常用来为某个组件编写插件时对依赖包进行管理。它要求用户已经引入了指定依赖，比如，你想为 webpack 写一个插件，但是其中用到了一些 webpack 方法，此时如果你将 webpack 添加到 dependencies 内，则意味着项目内会有两个版本的 webpack：一个来自项目本身，另一个来自你的插件。这是不合理的，因此通过 peerDependencies 来告诉用户，“嗨，如果你需要执行我的插件，需要先安装 webpack 哦！“ 这就给了用户选择依赖版本和升级包版本的自由！
 
-### 入口
-
-通过 `main` 来配置发布 node modules 的基础入口，比如 `"main": "dist/index.js"`
-
-通过 `files` 来配置发布包需要包含的文件/目录，比如你在 `.gitignore` 内配置了忽略 `dist` 目录，但是在发布时，需要告诉 npm 去包含该文件，则此时通过 `"files": ["dist"]` 解决
 
 
 ## Q&A

@@ -8,8 +8,7 @@ echo "hello"
 
 function build() {
   echo ">> The current version of $app is $version"
-  cp index.js npm/index.js
-  cp index.d.ts npm/index.d.ts
+  cp src/index.d.ts npm/index.d.ts
 }
 
 
