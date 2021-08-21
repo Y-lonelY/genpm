@@ -1,0 +1,31 @@
+{
+  "name": "genpm",
+  "version": "1.0.0",
+  "description": "Generate npm package!",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar-cli": "^2.1.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "husky": "^7.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Y-lonelY/genpm.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Y-lonelY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Y-lonelY/genpm/issues"
+  },
+  "homepage": "https://github.com/Y-lonelY/genpm#readme"
+}

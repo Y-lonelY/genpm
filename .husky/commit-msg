@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# $1 传递为 commit message 文件地址
+
+echo "$1"
+
+node scripts/verifyCommit.js
