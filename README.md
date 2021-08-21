@@ -1,8 +1,17 @@
-简体中文 | [English](./README.md)
+<p align="center">
+  <img src="./assets/home.jpg" height="128">
+  <h1 align="center">genpm</h1>
+</p>
 
-# NPM-TEMPLATE
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=By&message=Y-lonelY&color=%23ef613e" alt="author">
+  <img src="https://img.shields.io/github/license/Y-lonelY/genpm?color=%231890ff" alt="license">
+</p>
 
-NPM-TEMPLATE(React version) is a NPM Template Project based on [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) 和 [rollup](https://rollupjs.org/guide/en/) , or you can just start with JavaScript!
+
+## genpm
+
+<strong>genpm</strong> is used to help you Generate NPM Package quickly!
 
 we support `.js`, `.ts`, `.tsx` file type
 
@@ -15,7 +24,7 @@ Support NPM Packages:
 - [react-error-catcher](https://www.npmjs.com/package/react-error-catcher)
 
 
-## How to start
+## Getting Started
 
 1. do `npm install` to import some dependences
 
@@ -24,7 +33,7 @@ Support NPM Packages:
 3. do `npm run build` to generate `npm/index.js` on root
 
 
-### Local Development
+### Development
 
 Actually in `example/`，i have created a React mini project by `create react app`, what you need to do is importing what you develop to the `example/node_module`
 
@@ -32,15 +41,17 @@ Actually in `example/`，i have created a React mini project by `create react ap
 
 2. under root directory, `npm run dev` 和 `npm run sample` to listen local file changes and example changes
 
-we ues [chokidar-cli](https://github.com/kimmobrunfeldt/chokidar-cli) to listen file's change，rather than config [rollupwatch](https://rollupjs.org/guide/en/#rollupwatch) directly，for some issues in rollupwatch, maybe not working at all
+we ues [chokidar-cli](https://github.com/kimmobrunfeldt/chokidar-cli) to listen file's change，rather than config [rollupwatch](https://rollupjs.org/guide/en/#rollupwatch) directly，for some issues in rollupwatch, maybe not working at all.
 
 Attention, i have created the `npm` directory, so you can publish the npm package in this folder, so you can config the `control.sh` to do something, in this case to avoid some unless dependencies!
+
 
 ### Support Typescript
 
 Firstly, you need to `npm install --save typescript @types/node @types/react @types/react-dom @types/jest` and `npm install --save-dev @rollup/plugin-typescript` to support Typescript compile and package!
 
 Then, we need to add some configs:
+
 - remove `outDir` in `tsconfig.json`, or you will caught some errors when packing
 - config `types` in `package.json`, which will take the type define file into the bundle
 - config `files` to open whitelist, used to publish the target files to npm
@@ -52,8 +63,7 @@ Attention: `dependencies` is required to support the `.d.ts` file, see [publish]
 
 In most case, you will not want to include some packages(like `React`, `lodash` etc) when bundle up.
 
-You can config `external: ["react", "react-dom"]` in `rollup.config.js` to avoid this case, it will not the bundle up the whole `react`, and will replace with `var React = require('react');`, so you must ensure that you have included the `react` in your project! 
-
+You can config `external: ["react", "react-dom"]` in `rollup.config.js` to avoid this case, it will not the bundle up the whole `react`, and will replace with `var React = require('react');`, so you must ensure that you have included the `react` in your project!
 
 
 ## Q&A
