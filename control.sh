@@ -24,9 +24,9 @@ function choose() {
 
     case "$REPLY" in
 
-    1 ) gen "$opt";;
-    2 ) gen "$opt";;
-    3 ) gen "$opt";;
+    1 ) gen "$opt";break;;
+    2 ) gen "$opt";break;;
+    3 ) gen "$opt";break;;
     # 如果为 quit 则推出
     # $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     # 如果都不匹配，则报错

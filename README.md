@@ -25,7 +25,7 @@ It's a good idea to develop your great npm packages from this~~~
 
 ## Getting Started
 
-Just execute the command like this `bash control.sh gen` and determind which mode is good for you~
+Just execute the command like this `bash control.sh` and determind which mode is good for you~
 
 After that you can see more details on the mode docs~
 
