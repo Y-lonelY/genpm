@@ -1,14 +1,3 @@
-<p align="center">
-  <img src="./assets/home.jpg" height="128">
-  <h1 align="center">genpm</h1>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=By&message=Y-lonelY&color=%23ef613e" alt="author">
-  <img src="https://img.shields.io/github/license/Y-lonelY/genpm?color=%231890ff" alt="license">
-</p>
-
-
 ## genpm
 
 <strong>genpm</strong> is used to help you Generate NPM Package quickly!
