@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/Y-lonelY/genpm#readme",
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^5.0.1",
+    "lintdd": "^1.0.20",
+    "prettier": "^2.6.1"
   }
 }
