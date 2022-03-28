@@ -20,19 +20,14 @@
     "npm/"
   ],
   "dependencies": {
+    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.0",
+    "dayjs": "^1.11.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "4.0.0"
+    "react-dom": "^16.13.1"
   },
   "scripts": {
-    "build": "rollup --environment BUILD:production -c && bash control.sh build",
-    "dev": "chokidar src -c 'npm run build'",
-    "dev:link": "cd example/ && yarn add link:../",
-    "sample": "cd example/ && yarn dev"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "zx": "zx scripts/control.mjs"
   },
   "browserslist": {
     "production": [
@@ -50,7 +45,6 @@
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
-    "@types/react": "^16.9.49",
     "chokidar-cli": "^2.1.0",
     "lintdd": "^1.0.20",
     "rollup": "^2.70.1",
