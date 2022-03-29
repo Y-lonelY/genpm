@@ -6,8 +6,8 @@ import { terser } from 'rollup-plugin-terser'
 // 用来组合多个文件
 import multi from '@rollup/plugin-multi-entry'
 
-// 默认单文件入口
-const isMulti = false
+console.log('1', process.env.ROLLUP_MODE)
+const isMulti = process.env.ROLLUP_MODE
 
 export default {
   input: isMulti
