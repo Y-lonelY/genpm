@@ -1,5 +1,8 @@
 {
+  "extends": "./node_modules/lintdd/dist/reference/tsconfig4TS",
   "compilerOptions": {
+    "rootDir": "",
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

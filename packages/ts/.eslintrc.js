@@ -1,5 +1,8 @@
 const customizedOptions = {
   rules: {},
+  parserOptions: {
+    project: './packages/ts/tsconfig.json',
+  },
 }
 
 module.exports = {
