@@ -4,7 +4,7 @@ import chalk from 'chalk'
 
 const log = console.log
 const ALERT_MESSAGE = '\nPlease confirm your input!\n'
-const cmds = ['build']
+const cmds = ['build', 'dev']
 const [...restData] = process.argv.slice(3)
 
 let choosed
@@ -16,9 +16,13 @@ if (!restData || restData.length === 0) {
 } else {
   choosed = restData
 }
-console.log(choosed)
+
 const [target, ...rest] = choosed
 switch (target) {
+  case 'build':
+    process.env.NODE_ENV = 'development'
+    dev(rest)
+    break
   case 'build':
     process.env.NODE_ENV = 'production'
     build(rest)
@@ -41,12 +45,23 @@ function preHandleRest(data) {
   return crt
 }
 
+async function dev(values) {
+  const params = preHandleRest(values)
+  process.env.ROLLUP_MODE = params.mode || false
+  await $`rollup -c`
+}
+
+/**
+ * @param {*} values { mode: multi } 多文件入口
+ */
 async function build(values) {
   const params = preHandleRest(values)
   process.env.ROLLUP_MODE = params.mode || false
 
   await $`rollup -c`
-  await $`cp src/types.d.ts dist/`
-  await $`mv dist/multi-entry.js dist/index.js`
+  if (params.mode === 'multi') {
+    await $`cp src/types.d.ts dist/`
+    await $`mv dist/multi-entry.js dist/index.js`
+  }
   log(chalk.white.bgGreen.bold(`Successfully built at ${Date.now()}`))
 }
