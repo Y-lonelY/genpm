@@ -8,7 +8,8 @@
     "\"pure\"]"
   ],
   "scripts": {
-    "zx": "zx ./scripts/control.mjs"
+    "zx": "zx ./scripts/control.mjs",
+    "exp": "node ./examples/exp.js"
   },
   "browserslist": {
     "production": [

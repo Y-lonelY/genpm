@@ -46,5 +46,7 @@ async function build(values) {
   process.env.ROLLUP_MODE = params.mode || false
 
   await $`rollup -c`
+  await $`cp src/types.d.ts dist/`
+  await $`mv dist/multi-entry.js dist/index.js`
   log(chalk.white.bgGreen.bold(`Successfully built at ${Date.now()}`))
 }

@@ -12,7 +12,7 @@ export default {
   input: isMulti
     ? {
         // 合并多文件时，可以使用通配符
-        include: ['src/*.ts'],
+        include: ['src/**/*.ts'],
         exclude: ['src/*.d.ts'],
       }
     : 'src/index.ts',
@@ -22,11 +22,11 @@ export default {
       format: 'cjs',
       exports: 'auto',
     },
-    // {
-    //   file: './build/bundle.js',
-    //   format: 'iife',
-    //   name: 'bundlename',
-    // },
+    {
+      file: './build/bundle.js',
+      format: 'iife',
+      name: 'bundlename',
+    },
   ],
   plugins: isMulti
     ? [multi(), typescript(), resolve(), terser(), commonjs()]
